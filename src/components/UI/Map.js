@@ -7,7 +7,7 @@ const divStyle = {
 
 const mapStyle = {
   width: '100%',
-  height: '15em',
+  height: '100%',
 
 };
 
@@ -17,7 +17,8 @@ export default () => {
       <h1>Map</h1>
       <img 
         style={mapStyle}
-        src='https://geology.com/world/the-united-states-of-america-map.gif' />
+        src='https://geology.com/world/the-united-states-of-america-map.gif' 
+        alt= 'placeholder map'/>
     </div>
   );
 }

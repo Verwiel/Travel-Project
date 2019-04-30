@@ -1,42 +1,51 @@
-import React from 'react';
+import React, {useState} from 'react';
 //CSS
 import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 
 export default () => {
-  // state ={
-  //   username: "",
-  //   password: ""
-  // }
-
-  // handleChange = (event) => {
-  //   this.setState({
-  //     [event.target.name] : event.target.value
-  //   }, console.log([event.target.name] , event.target.value))
-  // }
-
-  // handleSubmit = (event) => {
-  //   event.preventDefault()
-  //   console.log(this.state)
-  //   this.setState({
-  //     username: "",
-  //     password: ""
-  //   })
-  // }
+  const [stateTrip, setTrip] = useState({
+    tripName: "",
+    startDate: "",
+    endDate: "",
+    tripDesc: "",
+  });
+ 
+  //same as old handle changes, with exception of
+  //spread operator since im using multiple values
+  const updateField = e => {
+    setTrip({
+      ...stateTrip,
+      [e.target.name]: e.target.value
+    });
+  };
+  
+  
+  //handleSubmit, posts values to console
+  const printValues = e => {
+    e.preventDefault();
+    console.log(stateTrip.tripName,
+      stateTrip.startDate,
+      stateTrip.endDate,
+      stateTrip.tripDesc
+      //might have to set values back to "" after
+      );
+  };
 
   return (
     <>
-    <legend>New Trip</legend>
-    <Form>
+    <legend>Trip</legend>
+    {/* <p> id: {trip.id}</p> */}
+    <Form onSubmit={printValues}>
       <Form.Row>
         <Form.Group as={Col} controlId="tripName">
           <Form.Label>Name of Trip</Form.Label>
           <Form.Control type="text" 
             placeholder="Enter trip name"
             name="tripName" 
-            value ="" 
-            onChange="" />
+            value = {stateTrip.tripName}
+            onChange= {updateField} />
         </Form.Group>
       </Form.Row>
 
@@ -45,16 +54,16 @@ export default () => {
           <Form.Label>Start Date</Form.Label>
           <Form.Control type="date" 
             name="startDate" 
-            value ="" 
-            onChange="" />
+            value = {stateTrip.startDate} 
+            onChange= {updateField} />
         </Form.Group>
 
         <Form.Group as={Col} controlId="endDate">
           <Form.Label>End Date</Form.Label>
           <Form.Control type="date" 
             name="endDate" 
-            value ="" 
-            onChange="" />
+            value = {stateTrip.endDate}
+            onChange= {updateField} />
         </Form.Group>
       </Form.Row> 
 
@@ -64,8 +73,8 @@ export default () => {
           <Form.Control type="text" 
             placeholder="Enter Description"
             name="tripDescription" 
-            value ="" 
-            onChange="" />
+            value = {stateTrip.tripDesc}
+            onChange= {updateField} />
         </Form.Group>
       </Form.Row>
 
@@ -78,7 +87,6 @@ export default () => {
   );
 }
 
-//add state
 //make submit button work
 //post with api
 //make pretty

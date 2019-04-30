@@ -1,6 +1,5 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav'
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 
@@ -12,7 +11,7 @@ export default () => {
       
       <DropdownButton
         alignRight
-        title="Dropdown right"
+        title=""
         id="dropdown-menu-align-right">
         <Dropdown.Item href="/TripList">Select Trip</Dropdown.Item>
         <Dropdown.Item href="/NewTrip">Create Trip</Dropdown.Item>

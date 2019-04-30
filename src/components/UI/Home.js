@@ -36,3 +36,5 @@ export default () => {
     </div>
   );
 }
+
+//set state for the pictures to pull from the days

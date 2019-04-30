@@ -7,14 +7,13 @@ export default () => {
       <h1>Trip List</h1>
       <p>trip ###
 
-      <Button href="/EditTrip">
+      <Button href="/NewTrip">
       Update
       </Button>
       <Button variant="primary" type="submit">
         Delete
       </Button>
       </p>
-      <a href="/">Home</a>
     </div>
   );
 }
